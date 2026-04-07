@@ -42,6 +42,7 @@ export class UsersTypeOrmRepository implements UsersRepositoryPort {
         if (!orm) throw new Error('User not found');
 
         orm.name = user.name;
+        orm.email = user.email;
         orm.isActive = user.isActive;
 
         const saved = await this.repo.save(orm);
